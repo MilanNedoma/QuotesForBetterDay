@@ -1,10 +1,10 @@
 // Array of predetermined messages
 const messages = [
-    "Hello, World!",
-    "Welcome to my website!",
-    "Have a great day!",
-    "This is a random message.",
-    "Click the button for more messages."
+    "Ahoj!",
+    "Tanec je bezva!",
+    "Ne, nevypadáš jako blázen, když tančíš.",
+    "Další náhodná zpráva",
+    "Jitu, pošli mi nějaký text."
 ];
 
 // Function to generate and display a random message
