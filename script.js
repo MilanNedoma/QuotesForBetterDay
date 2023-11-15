@@ -4,7 +4,8 @@ const messages = [
     "Tanec je bezva!",
     "Ne, nevypadáš jako blázen, když tančíš.",
     "Další náhodná zpráva",
-    "Jitu, pošli mi nějaký text."
+    "Jitu, pošli mi nějaký text.",
+    "Neboj, všechno dobře dopadne."
 ];
 
 // Function to generate and display a random message
