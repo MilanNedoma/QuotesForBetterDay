@@ -68,9 +68,6 @@ const messages = {
 
     ],
     SaturdayAfternoon: [
-        "Good afternoon! Enjoy your Saturday!",
-        "Hope you're having a great Saturday afternoon!",
-        "Make the most of your Saturday afternoon!",
         "Největší génius byl vynálezce postele.",
         "Mysli na své nohy. Vždy tě donesly, kam bylo třeba.",
         "Supérate, amiga!",
