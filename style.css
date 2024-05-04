@@ -21,11 +21,3 @@ button {
     color: white;
     text-align: center;
 }
-
-/* CSS for smartphones */
-@media only screen and (max-width: 600px) {
-    button {
-        padding: 1.5cm 4cm; /* Adjusted padding for smaller screens */
-        font-size: 14px; /* Adjusted font size for smaller screens */
-    }
-}
