@@ -49,9 +49,9 @@ function generateMessage() {
             }
             break;
         case 6: // Saturday
-            if (hourOfDay >= 6 && hourOfDay < 12) {
+            if (hourOfDay >= 12 && hourOfDay < 18) {
                 messageGroup = messages.SaturdayMorning;
-            } else if (hourOfDay >= 12 && hourOfDay < 18) {
+            } else if (hourOfDay >= 6 && hourOfDay < 12) {
                 messageGroup = messages.SaturdayAfternoon;
             }
             break;
