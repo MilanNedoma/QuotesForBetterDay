@@ -5,6 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Message Generator</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: rgba(100%, 100%, 0%, 0.5); /* CMYK color: 100, 100, 0, 50 */
+        }
+
+        .message-container {
+            text-align: center;
+        }
+
+        button {
+            padding: 2cm 5cm; /* Button height: 2cm, width: 5cm */
+            font-size: 16px;
+            cursor: pointer;
+            background-color: rgba(0, 0, 0, 0); /* Transparent background */
+            border: 2px solid rgba(0, 0, 0, 0); /* Transparent border */
+            color: white;
+            text-align: center;
+        }
+
+        /* CSS for smartphones */
+        @media only screen and (max-width: 600px) {
+            button {
+                padding: 1.5cm 4cm; /* Adjusted padding for smaller screens */
+                font-size: 14px; /* Adjusted font size for smaller screens */
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="message-container">
