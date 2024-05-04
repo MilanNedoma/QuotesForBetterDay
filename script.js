@@ -132,28 +132,27 @@ function generateMessage() {
     let messageGroup;
 
     // Determine the appropriate message group based on the current day and time
-    switch (dayOfWeek) {
-        case 5: // Friday
-            if (hourOfDay >= 15 && hourOfDay < 20) {
-                messageGroup = messages.FridayAfternoon;
-            }
-            break;
-        case 6: // Saturday
-            if (hourOfDay >= 0 && hourOfDay < 12) {
-                messageGroup = messages.SaturdayMorning;
-            } else if (hourOfDay >= 12 && hourOfDay < 16.50) {
-                messageGroup = messages.SaturdayMidday;
-            }
-            } else if (hourOfDay >= 16.50 && hourOfDay < 0) {
-                messageGroup = messages.SaturdayAfternoon;
-            }
-            break;
-        case 0: // Sunday
-            if (hourOfDay >= 0 && hourOfDay < 14) {
-                messageGroup = messages.SundayMorning;
-            }
-            break;
-    }
+   switch (dayOfWeek) {
+    case 5: // Friday
+        if (hourOfDay >= 15 && hourOfDay < 20) {
+            messageGroup = messages.FridayAfternoon;
+        }
+        break;
+    case 6: // Saturday
+        if (hourOfDay >= 0 && hourOfDay < 12) {
+            messageGroup = messages.SaturdayMorning;
+        } else if (hourOfDay >= 12 && hourOfDay < 16.5) {
+            messageGroup = messages.SaturdayMidday;
+        } else if (hourOfDay >= 16.5 && hourOfDay < 24) {
+            messageGroup = messages.SaturdayAfternoon;
+        }
+        break;
+    case 0: // Sunday
+        if (hourOfDay >= 0 && hourOfDay < 14) {
+            messageGroup = messages.SundayMorning;
+        }
+        break;
+}
 
     if (messageGroup) {
         // Get a random message from the selected group
