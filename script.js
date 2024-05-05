@@ -139,7 +139,7 @@ function generateMessage() {
             }
             break;
         case 0: // Sunday
-            if (hourOfDay >= 0 && hourOfDay < 14) {
+            if (hourOfDay >= 0 && hourOfDay < 24) {
                 messageGroup = messages.SundayMorning;
             }
             break;
