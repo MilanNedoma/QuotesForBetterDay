@@ -14,6 +14,7 @@
             height: 100vh;
             margin: 0;
             background-color: rgba(0, 0, 128, 0.8); /* CMYK color: 100, 100, 0, 50 */
+            color: white; /* Text color */
         }
 
         .message-container {
@@ -22,7 +23,7 @@
     </style>
 </head>
 <body>
-    <div class="message-container">
+    <div class="message-container" id="messageContainer">
         <h1 id="message">Random Message:</h1>
     </div>
     <script>
@@ -172,10 +173,10 @@
                     }
                     break;
             }
-            
+
             const messageContainer = document.getElementById('messageContainer');
-            
-           if (messageGroup) {
+
+            if (messageGroup) {
                 // Get a random message from the selected group
                 const randomIndex = Math.floor(Math.random() * messageGroup.length);
                 // Display the selected message
@@ -190,8 +191,7 @@
             }
         }
 
-
-// Function to determine background color based on day of week and hour of day
+        // Function to determine background color based on day of week and hour of day
         function getBackgroundColor(dayOfWeek, hourOfDay) {
             switch (dayOfWeek) {
                 case 5: // Friday
