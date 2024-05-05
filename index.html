@@ -186,6 +186,7 @@
                 // Display the selected message
                 document.getElementById('message').textContent = messageGroup[randomIndex];
                 // Set the background color of the message container
+                backgroundColor = getBackgroundColor(dayOfWeek, hourOfDay);
                 messageContainer.style.backgroundColor = backgroundColor;
             } else {
                 document.getElementById('message').textContent = "Sorry, no messages available for this time.";
@@ -194,6 +195,34 @@
             }
         }
 
+
+         function getBackgroundColor(dayOfWeek, hourOfDay) {
+            switch (dayOfWeek) {
+                case 5: // Friday
+                    if (hourOfDay >= 15 && hourOfDay < 20) {
+                        return "rgba(0, 0, 128, 0.8)";
+                    }
+                    break;
+                case 6: // Saturday
+                    if (hourOfDay >= 0 && hourOfDay < 12) {
+                        return "rgba(0, 128, 91, 0.8)";
+                    } else if (hourOfDay >= 12 && hourOfDay < 16.5) {
+                        return "rgba(0, 158, 255, 0.8)";
+                    } else if (hourOfDay >= 16.5 && hourOfDay < 24) {
+                        return "rgba(208, 36, 6, 0.8)";
+                    }
+                    break;
+                case 0: // Sunday
+                    if (hourOfDay >= 0 && hourOfDay < 24) {
+                        return "rgba(245, 128, 0, 0.8)";
+                    }
+                    break;
+            }
+            // Default background color
+            return "rgba(0, 0, 0, 0.8)";
+        }
+
+        
         // Call generateMessage function when the script loads
         generateMessage();
     </script>
