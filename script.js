@@ -121,39 +121,54 @@ function generateMessage() {
     const hourOfDay = now.getHours(); // 0-23
 
     let messageGroup;
+    let backgroundColor;
 
     // Determine the appropriate message group based on the current day and time
     switch (dayOfWeek) {
         case 5: // Friday
             if (hourOfDay >= 15 && hourOfDay < 20) {
                 messageGroup = messages.FridayAfternoon;
+                backgroundColor = "rgba(0, 0, 128, 0.8)";
             }
             break;
         case 6: // Saturday
             if (hourOfDay >= 0 && hourOfDay < 12) {
                 messageGroup = messages.SaturdayMorning;
+                backgroundColor = "rgba(0, 128, 91, 0.8)";
             } else if (hourOfDay >= 12 && hourOfDay < 16.5) {
                 messageGroup = messages.SaturdayMidday;
+                backgroundColor = "rgba(0, 158, 255, 0.8)";
             } else if (hourOfDay >= 16.5 && hourOfDay < 24) {
                 messageGroup = messages.SaturdayAfternoon;
+                backgroundColor = "rgba(208, 36, 6, 0.8)";
             }
             break;
         case 0: // Sunday
             if (hourOfDay >= 0 && hourOfDay < 24) {
                 messageGroup = messages.SundayMorning;
+                 backgroundColor = "rgba(245, 128, 0, 0.8)";
             }
             break;
     }
 
-    if (messageGroup) {
-        // Get a random message from the selected group
-        const randomIndex = Math.floor(Math.random() * messageGroup.length);
-        // Display the selected message
-        console.log("Random Message: " + messageGroup[randomIndex]);
-    } else {
-        console.log("Sorry, no messages available for this time.");
-    }
-}
+  const messageContainer = document.getElementById('messageContainer');
 
-// Call generateMessage function when the script loads
-generateMessage();
+            if (messageGroup) {
+                // Get a random message from the selected group
+                const randomIndex = Math.floor(Math.random() * messageGroup.length);
+                // Display the selected message
+                document.getElementById('message').textContent = messageGroup[randomIndex];
+                // Set the background color of the message container
+                messageContainer.style.backgroundColor = backgroundColor;
+            } else {
+                document.getElementById('message').textContent = "Sorry, no messages available for this time.";
+                // Set default background color if no message group is found
+                messageContainer.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
+            }
+        }
+
+        // Call generateMessage function when the script loads
+        generateMessage();
+    </script>
+</body>
+</html>
