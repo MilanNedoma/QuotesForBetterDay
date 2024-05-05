@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Random Message Generator</title>
-    <link rel="stylesheet" href="style.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -13,7 +12,6 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: rgba(0, 0, 128, 0.8); /* CMYK color: 100, 100, 0, 50 */
             color: white; /* Text color */
         }
 
@@ -143,33 +141,37 @@
         };
 
         // Function to generate and display a random message based on current time
-        function generateMessage() {
+       function generateMessage() {
             const now = new Date();
             const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
             const hourOfDay = now.getHours(); // 0-23
 
             let messageGroup;
-            let backgroundColor;
 
             // Determine the appropriate message group based on the current day and time
             switch (dayOfWeek) {
                 case 5: // Friday
                     if (hourOfDay >= 15 && hourOfDay < 20) {
                         messageGroup = messages.FridayAfternoon;
+                        document.body.style.backgroundColor = "rgba(0, 0, 128, 0.8)"; // Friday afternoon color
                     }
                     break;
                 case 6: // Saturday
                     if (hourOfDay >= 0 && hourOfDay < 12) {
                         messageGroup = messages.SaturdayMorning;
+                        document.body.style.backgroundColor = "rgba(0, 128, 91, 0.8)"; // Saturday morning color
                     } else if (hourOfDay >= 12 && hourOfDay < 16.5) {
                         messageGroup = messages.SaturdayMidday;
+                        document.body.style.backgroundColor = "rgba(0, 158, 255, 0.8)"; // Saturday midday color
                     } else if (hourOfDay >= 16.5 && hourOfDay < 24) {
                         messageGroup = messages.SaturdayAfternoon;
+                        document.body.style.backgroundColor = "rgba(208, 36, 6, 0.8)"; // Saturday afternoon color
                     }
                     break;
                 case 0: // Sunday
                     if (hourOfDay >= 0 && hourOfDay < 24) {
                         messageGroup = messages.SundayMorning;
+                        document.body.style.backgroundColor = "rgba(245, 128, 0, 0.8)"; // Sunday morning color
                     }
                     break;
             }
@@ -181,41 +183,9 @@
                 const randomIndex = Math.floor(Math.random() * messageGroup.length);
                 // Display the selected message
                 document.getElementById('message').textContent = messageGroup[randomIndex];
-                // Set the background color of the message container based on the message group
-                backgroundColor = getBackgroundColor(dayOfWeek, hourOfDay);
-                messageContainer.style.backgroundColor = backgroundColor;
             } else {
                 document.getElementById('message').textContent = "Sorry, no messages available for this time.";
-                // Set default background color if no message group is found
-                messageContainer.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
             }
-        }
-
-        // Function to determine background color based on day of week and hour of day
-        function getBackgroundColor(dayOfWeek, hourOfDay) {
-            switch (dayOfWeek) {
-                case 5: // Friday
-                    if (hourOfDay >= 15 && hourOfDay < 20) {
-                        return "rgba(0, 0, 128, 0.8)";
-                    }
-                    break;
-                case 6: // Saturday
-                    if (hourOfDay >= 0 && hourOfDay < 12) {
-                        return "rgba(0, 128, 91, 0.8)";
-                    } else if (hourOfDay >= 12 && hourOfDay < 16.5) {
-                        return "rgba(0, 158, 255, 0.8)";
-                    } else if (hourOfDay >= 16.5 && hourOfDay < 24) {
-                        return "rgba(208, 36, 6, 0.8)";
-                    }
-                    break;
-                case 0: // Sunday
-                    if (hourOfDay >= 0 && hourOfDay < 24) {
-                        return "rgba(245, 128, 0, 0.8)";
-                    }
-                    break;
-            }
-            // Default background color
-            return "rgba(0, 0, 0, 0.8)";
         }
 
         // Call generateMessage function when the script loads
