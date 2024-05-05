@@ -44,7 +44,7 @@ const messages = {
         "Ostatní ti často radí to, co by nejraději slyšeli sami.",
         "Tekutá strava vede k ucpání uší."
     ],
- SaturdayMidday: [
+    SaturdayMidday: [
         "Nejkrásnější make-up je úsměv.",
         "Capuccino? Filtrovaná? Bez kofeinu?",
         "Mozuk si dopltí strávná písmena.",
@@ -114,44 +114,38 @@ const messages = {
     ],
 };
 
-// Function to get the current day and time
-function getCurrentDayAndTime() {
+// Function to generate and display a random message based on current time
+function generateMessage() {
     const now = new Date();
     const dayOfWeek = now.getDay(); // 0 = Sunday, 1 = Monday, ..., 6 = Saturday
     const hourOfDay = now.getHours(); // 0-23
-    return { dayOfWeek, hourOfDay };
-}
-
-// Function to generate and display a random message based on current time
-function generateMessage() {
-    const { dayOfWeek, hourOfDay } = getCurrentDayAndTime();
 
     let messageGroup;
 
     // Determine the appropriate message group based on the current day and time
-   switch (dayOfWeek) {
-    case 5: // Friday
-        if (hourOfDay >= 15 && hourOfDay < 20) {
-            messageGroup = messages.FridayAfternoon;
-        }
-        break;
-    case 6: // Saturday
-        if (hourOfDay >= 0 && hourOfDay < 12) {
-            messageGroup = messages.SaturdayMorning;
-        } else if (hourOfDay >= 12 && hourOfDay < 16.5) {
-            messageGroup = messages.SaturdayMidday;
-        } else if (hourOfDay >= 16.5 && hourOfDay < 24) {
-            messageGroup = messages.SaturdayAfternoon;
-        }
-        break;
-    case 0: // Sunday
-        if (hourOfDay >= 0 && hourOfDay < 14) {
-            messageGroup = messages.SundayMorning;
-        }
-        break;
-}
-    
-     if (messageGroup) {
+    switch (dayOfWeek) {
+        case 5: // Friday
+            if (hourOfDay >= 15 && hourOfDay < 20) {
+                messageGroup = messages.FridayAfternoon;
+            }
+            break;
+        case 6: // Saturday
+            if (hourOfDay >= 0 && hourOfDay < 12) {
+                messageGroup = messages.SaturdayMorning;
+            } else if (hourOfDay >= 12 && hourOfDay < 16.5) {
+                messageGroup = messages.SaturdayMidday;
+            } else if (hourOfDay >= 16.5 && hourOfDay < 24) {
+                messageGroup = messages.SaturdayAfternoon;
+            }
+            break;
+        case 0: // Sunday
+            if (hourOfDay >= 0 && hourOfDay < 14) {
+                messageGroup = messages.SundayMorning;
+            }
+            break;
+    }
+
+    if (messageGroup) {
         // Get a random message from the selected group
         const randomIndex = Math.floor(Math.random() * messageGroup.length);
         // Display the selected message
