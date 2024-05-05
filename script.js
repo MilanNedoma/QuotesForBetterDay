@@ -150,13 +150,16 @@ function generateMessage() {
         }
         break;
 }
-
-    if (messageGroup) {
+    
+     if (messageGroup) {
         // Get a random message from the selected group
         const randomIndex = Math.floor(Math.random() * messageGroup.length);
         // Display the selected message
-        document.getElementById('message').textContent = messageGroup[randomIndex];
+        console.log("Random Message: " + messageGroup[randomIndex]);
     } else {
-        document.getElementById('message').textContent = "Sorry, no messages available for this time.";
+        console.log("Sorry, no messages available for this time.");
     }
 }
+
+// Call generateMessage function when the script loads
+generateMessage();
