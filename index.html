@@ -148,6 +148,7 @@
             const hourOfDay = now.getHours(); // 0-23
 
             let messageGroup;
+            let backgroundColor;
 
             // Determine the appropriate message group based on the current day and time
             switch (dayOfWeek) {
@@ -177,6 +178,8 @@
                     break;
             }
 
+            const messageContainer = document.getElementById('messageContainer');
+            
            if (messageGroup) {
                 // Get a random message from the selected group
                 const randomIndex = Math.floor(Math.random() * messageGroup.length);
