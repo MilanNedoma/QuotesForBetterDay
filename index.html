@@ -177,13 +177,16 @@
                     break;
             }
 
-            if (messageGroup) {
+           if (messageGroup) {
                 // Get a random message from the selected group
                 const randomIndex = Math.floor(Math.random() * messageGroup.length);
                 // Display the selected message
                 document.getElementById('message').textContent = messageGroup[randomIndex];
+                // Set the background color of the message container
+                messageContainer.style.backgroundColor = backgroundColor;
             } else {
                 document.getElementById('message').textContent = "Sorry, no messages available for this time.";
+                // Set default background color if no message group is found
                 messageContainer.style.backgroundColor = "rgba(0, 0, 0, 0.8)";
             }
         }
