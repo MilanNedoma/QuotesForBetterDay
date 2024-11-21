@@ -158,7 +158,7 @@
             // Determine the appropriate message group based on the current day and time
             switch (dayOfWeek) {
                 case 5: // Friday
-                    if (hourOfDay >= 15 && hourOfDay < 20) {
+                    if (hourOfDay >= 15 && hourOfDay < 24) {
                         messageGroup = messages.FridayAfternoon;
                         document.body.style.backgroundColor = "rgba(0, 0, 128, 0.8)"; // Friday afternoon color
                     }
